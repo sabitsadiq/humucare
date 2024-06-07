@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+    <title>Humucare</title>
+    <link rel="stylesheet" href="./styles/home.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" id="myNavbar">
+            <div class="nav-items">
+                <div>
+                    <img src="./images/logo.png" alt="logo" class="logo" />
+                </div>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#consultation">Consultation</a>
+                <a href="#services">Services</a>
+                <button class="btn">Humu Courses</button>
+                <button class="btn">Register</button>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+                <i>&#9776;</i>
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <img src="./images/hero-bg-image.png" alt="hero-bg" />
+        <div>
+            <div class="hero-sub">
+                <article class="hero-info">
+                    <h2>Your most trusted partner in care and Hygiene</h2>
+                    <button>Learn more</button>
+                </article>
+                <div class="nurse-old-woman">
+                    <img src="./images/nurse-with-old-patient.png" alt="Nurse with old patient" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div>
+            <div class="about-sub">
+                <h2>About Us</h2>
+                <p>Humucare is your ultimate destination for top-quality cleaning and care services. Our dedicated team
+                    consists of caregivers, nannies, cleaners, and childminders who are committed to providing
+                    exceptional
+                    assistance and support. With a focus on cleanliness and hygiene, we ensure that your home, school,
+                    office, or any other space receives the best cleaning service possible.</p>
+                <button class="btn req-btn">Request a service</button>
+                <div class="nurse-container">
+                    <img src="./images/nurse.png" alt="Nurse" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <img src="./images/baby-and-mother.png" alt="Baby and Mother" />
+        <div class="testimonials-main">
+            <h2 class="testimonials-heading">Testimonials</h2>
+            <p>Read what our clients say about us</p>
+            <div class="testimonials-sub">
+                <article class="testimonials-card">
+                    <p>"If you're looking for a compassionate agency to care for children and the elderly, I highly
+                        recommend Humucare. Their friendliness and professionalism is what I love most about them."</p>
+                    <h2>Mr Abiola Oredapo</h2>
+                </article>
+                <article class="testimonials-card">
+                    <p>"I didn’t know what to do about my health issues. I got to find this team, their touch was just
+                        what I needed. They are friendly professionals who really care."</p>
+                    <h2>Miss Jane Smith</h2>
+                </article>
+                <article class="testimonials-card">
+                    <p>"HUMUCARE is a reputable and reliable care organization, their care and consultancy is tested and
+                        trusted. The well-being of the elderly and those who need support is what drives Humucare."</p>
+                    <h2>Mr Freshermel</h2>
+                </article>
+                <article class="testimonials-card">
+                    <p>"Humucare agency assisted my family and me in securing a care job at a reputable facility. Also,
+                        their support and guidance in the visa process was the best."</p>
+                    <h2>Mr Dolapo Adebayo</h2>
+                </article>
+            </div>
+            <div class="book-consultation">
+                <p class="booking-heading">We are committed to serving you</p>
+                <button class="booking-btn">Book a consultation now!</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-humucare" id="services">
+        <div class="why-humucare-main">
+            <h2>Why Choose Humucare</h2>
+            <div class="service-details">
+                <article>
+                    <h5>Experienced and Supportive Assistance:</h5>
+                    <p>Beyond just cleaning, our team provides companionship and one-on-one attention to foster a caring
+                        and trustworthy relationship with our clients. We understand that each individual has unique
+                        needs, and we strive to develop meaningful connections based on trust and compassion.</p>
+                </article>
+                <div class="service-slider-container">
+                    <img class="service-slider-img" src="./images//nurse-with-old-patient-1.png"
+                        alt="Nurse and Patient" />
+                    <div class="dot-container">
+                        <div class="dot" id="current"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="training-course">
+        <div class="training-course-main">
+            <h2>Consultation</h2>
+            <p>We have a range of care and cleaning courses to help those interested in learning and becoming better
+                carers and
+                cleaners</p>
+            <div class="training-course-details">
+                <article>
+                    <div>
+                        <h5>Skill Up, Stand Out:</h5>
+                        <p>HumuCare Courses for the Next Level of Care. Stand out in your field with HumuCare's
+                            skill-focused courses designed to
+                            equip you with the advanced knowledge and techniques needed to excel in caregiving.</p>
+
+                    </div>
+                    <button class="btn training">Get started</button>
+                </article>
+                <div class="training-slider-container">
+                    <img class="training-slider-img" src="./images/nurse-with-old-patient-1.png"
+                        alt="Nurse and Patient" />
+                    <div class="dot-container">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot" id="current-training"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact-main">
+            <h2>Contact Us</h2>
+            <div class="address">
+                <div>
+                    <div class="address-heading"><img class="contact-icons" src="./images/location.png"
+                            alt="location" />
+                        <h3>Office Address</h3>
+                    </div>
+                    <h6>19 Grove Ln, Handsworth, Birmingham B21 9ES</h6>
+
+                </div>
+                <div>
+                    <div class="address-heading"><img class="contact-icons" src="./images/phone.png" alt="phone" />
+                        <h3>Phone</h3>
+                    </div>
+                    <h6>+44 01214484501</h6>
+                    <h6>+44 7485705519</h6>
+                    <h6>+44 7449688883</h6>
+
+                </div>
+                <div>
+                    <div class="address-heading"><img class="contact-icons" src="./images/mail.png" alt="mail" />
+                        <h3>Email</h3>
+                    </div>
+                    <h6>agency@humucarecleaning.co.uk</h6>
+
+                </div>
+            </div>
+            <div class="map">
+                <img src="./images/map.png" alt="map" />
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-details">
+                <div class="footer-nav">
+                    <h3>Company</h3>
+                    <div class="footer-links">
+                        <a>Home</a>
+                        <a>About</a>
+                        <a>Contact</a>
+                        <a>Consultation</a>
+                        <a>Services</a>
+                        <button class="btn">
+                            Courses
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-logo">
+                        <img src="./images/logo.png" alt="logo" />
+
+                    </div>
+                    <h6>Humucare&cleaning Agency is​ a registered company​​ located at the heart of birmingham, we are
+                        an
+                        organization with a
+                        standout experience in the care giving​ and cleaning.​ As we all know hygiene is a paramount and
+                        essential part of our
+                        lives so we bring you not just that but also more with love.</h6>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>
