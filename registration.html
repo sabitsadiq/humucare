@@ -7,8 +7,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./styles/about.css">
-    <title>About</title>
+    <title>Registration</title>
+    <link rel="stylesheet" href="./styles/registration.css">
 </head>
 
 <body>
@@ -19,14 +19,15 @@
             <nav class="navbar" id="myNavbar">
                 <div class="nav-items">
                     <div>
-                        <a href="./home.html">
-                            <img src="./images/logo.png" alt="logo" class="logo" />
-                        </a>
+                        <img src="./images/logo.png" alt="logo" class="logo" />
                     </div>
-                    <a href="./about.html">About</a>
-                    <a href="#contact">Contact</a>
-                    <a href="./home.html#consultations">Consultation</a>
-                    <a href="#services">Services</a>
+                    <div class="nav-links">
+                        <a href="./about.html">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#consultations">Consultation</a>
+                        <a href="#services">Services</a>
+                    </div>
+
                     <button class="btn">Humu Courses</button>
                     <button class="btn">Register</button>
                 </div>
@@ -35,24 +36,41 @@
                 </a>
             </nav>
         </header>
-        <section class="about" id="about">
-            <div>
-                <div class="about-sub">
-                    <h2>About Us</h2>
-                    <p>Humucare is your ultimate destination for top-quality cleaning and care services. Our dedicated
-                        team
-                        consists of caregivers, nannies, cleaners, and childminders who are committed to providing
-                        exceptional
-                        assistance and support. With a focus on cleanliness and hygiene, we ensure that your home,
-                        school,
-                        office, or any other space receives the best cleaning service possible.</p>
-                    <button class="btn req-btn">Request a service</button>
-                    <div class="nurse-container">
-                        <img src="./images/nurse.png" alt="Nurse" />
-                    </div>
+
+        <section class="form" id="home">
+            <div class="form-sub">
+                <h2>Register</h2>
+                <div class="form-container">
+                    <h4 class="">Register</h4>
+                    <p>To take Courses and gain a Certificate</p>
+
+                    <form>
+                        <input type="text" id="fname" name="fname">
+                        <input type="text" id="fname" name="fname">
+                        <input type="text" id="fname" name="fname">
+                        <input type="text" id="fname" name="fname">
+                        <input type="text" id="fname" name="fname">
+                        <button class="btn">
+                            Register
+                        </button>
+                        <span>Already have an account? <a href="./login.html">Login</a></span>
+                    </form>
                 </div>
             </div>
+            <!-- <div class="hero-sub">
+                <article class="hero-info">
+                    <h2>Your most trusted partner in care and Hygiene</h2>
+                    <a href="./about.html">
+                        <button class="hero-btn">Learn more</button>
+                    </a>
+                </article>
+                <div class="nurse-old-woman">
+                    <img src="./images/nurse-with-old-patient.png" alt="Nurse with old patient" />
+                </div>
+            </div> -->
         </section>
+
+
         <section class="contact" id="contact">
             <div class="contact-main">
                 <h2>Contact Us</h2>
