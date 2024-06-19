@@ -1,14 +1,22 @@
 import data from "./data.js";
 const container = document.querySelector(".container");
-console.log(container);
+const wrapper = document.querySelector(".service-slider-container");
+const arrowBtns = document.querySelectorAll(".service-dot-container .dot");
+const form = document.querySelector(".form");
+const firstImageWidth = document.querySelector(
+  ".service-slider-img"
+).offsetWidth;
+console.log(arrowBtns, firstImageWidth, wrapper.scrollLeft);
+// console.log(main);
+const registerBtn = document.getElementById("registerBtn");
 
 let contents = [...data];
-console.log("contents", contents);
+// console.log("contents", contents);
 
 container.innerHTML = contents
   .map((content, slideIndex) => {
     const { img, heading, info } = content;
-    console.log(content);
+    // console.log(content);
     let position = "next";
     if (slideIndex === 0) {
       position = "active";
@@ -54,7 +62,7 @@ container.innerHTML = contents
   .join("");
 
 const slideshows = document.querySelectorAll('[data-component="slideshow2"]');
-console.log(slideshows);
+// console.log(slideshows);
 
 slideshows.forEach(initSlideShow);
 
@@ -62,7 +70,7 @@ function initSlideShow(slideshow2) {
   const slides = document.querySelectorAll(
     `#${slideshow2.id} [role="list"] .autoSlider-container`
   ); // Get an array of slides
-  console.log(slides);
+  // console.log(slides);
   var index = 0,
     time = 5000;
   slides[index].classList.add("active");
@@ -77,6 +85,42 @@ function initSlideShow(slideshow2) {
     if (index === slides.length) index = 0;
 
     slides[index].classList.add("active");
-    console.log("index", slides[index]);
+    // console.log("index", slides[index]);
   }, time);
 }
+
+arrowBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log(btn.id);
+    console.log(wrapper.scrollLeft);
+    wrapper.scrollLeft +=
+      btn.id === "prev" ? -firstImageWidth : firstImageWidth;
+    console.log(firstImageWidth);
+  });
+});
+
+const handleShowRegistration = () => {
+  body.classList.add(blur);
+  console.log("show register");
+  console.log(body);
+};
+const classNames = [
+  "hero",
+  "about",
+  "testimonials",
+  "why-humucare",
+  "training-course",
+  "form",
+];
+
+const addHideClass = () => {
+  // classNames.forEach((className) => {
+  //   document.querySelectorAll(`.${className}`).forEach((element) => {
+  //     element.classList.add("hide");
+  //   });
+  // });
+  form.classList.add("show");
+  sessionStorage.setItem("form", "show");
+};
+
+registerBtn.addEventListener("click", addHideClass);

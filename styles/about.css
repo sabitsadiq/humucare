@@ -92,6 +92,23 @@ h5 {
   overflow: hidden;
   height: 887px;
   /* margin-top: -60rem; */
+  background: linear-gradient(
+    180.52deg,
+    rgba(82, 128, 176, 0.09) -34.03%,
+    #120b59 101.92%
+  );
+  opacity: 0;
+  animation: showAbout 0.5s 0.1s ease-in-out 1 forwards;
+}
+@keyframes showAbout {
+  from {
+    transform: translateY(250px); /* Move 50px downward at the start */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); /* Move back to original position */
+    opacity: 1;
+  }
 }
 .about > div {
   width: 80%;
@@ -219,28 +236,41 @@ h5 {
 .copyright {
   margin-top: 23px;
 }
-@media screen and (max-width: 600px) {
-  .navbar a:not(:first-child) {
+@media screen and (max-width: 767px) {
+  header {
+    width: 100%;
+    justify-content: space-between;
+  }
+  h2 {
     display: none;
   }
-  .navbar a.icon {
-    float: right;
-    display: block;
+  .form,
+  .contact-main {
+    padding: 1rem;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .navbar.responsive {
-    position: relative;
+  .form-sub,
+  .contact {
+    width: 100%;
+    flex-direction: column;
+    /* justify-content: start; */
   }
-  .navbar.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+  .form-container form {
+    padding: 1rem;
   }
-  .navbar.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
+  .contact-main,
+  .address {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .address {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-details {
+    gap: 40px;
+    justify-content: start;
+  }
+  .copyright-container {
+    width: 90%;
   }
 }
