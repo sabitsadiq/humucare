@@ -7,8 +7,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
-    <title>Login</title>
-    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/takecourse.css">
+    <title>Courses</title>
 </head>
 
 <body>
@@ -19,48 +19,72 @@
             <nav class="navbar" id="myNavbar">
                 <div class="nav-items">
                     <div>
-                        <a href="./home.html">
-                            <img src="./images/logo.png" alt="logo" class="logo" />
-                        </a>
+                        <img src="./images/logo.png" alt="logo" class="logo" />
                     </div>
                     <div class="nav-links">
-                        <a href="./about.html">About</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#consultations">Consultation</a>
-                        <a href="#services">Services</a>
-                    </div>
+                        <a href="./home.html">Home</a>
 
-                    <button class="btn">Humu Courses</button>
-                    <button class="btn">Register</button>
+                        <button class="btn">Humu Courses</button>
+                        <a href="./myAccount.html">
+                            <button class="btn" id="registerBtn">My Account</button>
+                        </a>
+                    </div>
                 </div>
                 <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
                     <i>&#9776;</i>
                 </a>
             </nav>
         </header>
+        <section class="welcome">
+            <div class="welcome_sub">
 
-        <section class="form" id="home">
-            <div class="form-sub">
-                <h2>Courses</h2>
-                <div class="form-container">
-                    <h4 class="">Login</h4>
-                    <p>Login to continue your courses</p>
-
-                    <form>
-                        <input type="text" id="email" name="email" placeholder="Type your email">
-                        <input type="text" id="password" name="password" placeholder="Password">
-
-                        <button class="btn">
-                            <a href="./takeCourse.html">
-                                Login
-                            </a>
-                        </button>
-                        <span>Are you a new member? <a href="./registration.html">Create an account</a></span>
-                    </form>
+                <h2>Welcome</h2>
+                <p>A demo of our course on Person-centered care</p>
+                <div class="tutorial-container">
+                    <img src="./images/course.png" alt="video" />
                 </div>
             </div>
         </section>
-
+        <section class="explore-more">
+            <div class="explore-more_sub">
+                <div class="card_container">
+                    <div class="explore-more_card">
+                        <div>
+                            <h2>Humu</h2>
+                            <p>20 certificates</p>
+                            <span class="value">03</span>
+                            <p>Completed courses</p>
+                        </div>
+                        <div class="explore-more_btn_container">
+                            <button class="btn">View Profile</button>
+                        </div>
+                    </div>
+                    <div class="explore-more_card">
+                        <div>
+                            <h2>Person-centered care</h2>
+                            <p>20 certificates</p>
+                            <span class="value">33%</span>
+                            <p>Click to continue from where you stopped</p>
+                        </div>
+                        <div class="explore-more_btn_container">
+                            <button class="btn">Continue</button>
+                        </div>
+                    </div>
+                    <div class="explore-more_card">
+                        <div>
+                            <h2>Collections</h2>
+                            <p>20 certificates</p>
+                            <span class="value">02</span>
+                            <p>List of courses you saved for later</p>
+                        </div>
+                        <div class="explore-more_btn_container">
+                            <button class="btn">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="more_course_btn">Explore more courses</button>
+        </section>
 
         <section class="contact" id="contact">
             <div class="contact-main">

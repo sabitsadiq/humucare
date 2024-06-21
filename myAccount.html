@@ -7,60 +7,47 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
-    <title>Login</title>
-    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/myAccount.css">
+    <title>Courses</title>
 </head>
 
 <body>
-    <img src="./images/hero-bg-image.png" alt="hero-bg" />
+    <!-- <img src="./images/hero-bg-image.png" alt="hero-bg" /> -->
     <main>
 
         <header>
             <nav class="navbar" id="myNavbar">
                 <div class="nav-items">
                     <div>
-                        <a href="./home.html">
-                            <img src="./images/logo.png" alt="logo" class="logo" />
-                        </a>
+                        <img src="./images/logo.png" alt="logo" class="logo" />
                     </div>
                     <div class="nav-links">
-                        <a href="./about.html">About</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#consultations">Consultation</a>
-                        <a href="#services">Services</a>
-                    </div>
+                        <a href="./home.html">Home</a>
 
-                    <button class="btn">Humu Courses</button>
-                    <button class="btn">Register</button>
+                        <button class="btn">Humu Courses</button>
+                        <a href="./registration.html">
+                            <button class="btn" id="registerBtn">Register</button>
+                        </a>
+                    </div>
                 </div>
                 <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
                     <i>&#9776;</i>
                 </a>
             </nav>
         </header>
+        <section class="myAccount">
+            <div class="myAccount_sub">
 
-        <section class="form" id="home">
-            <div class="form-sub">
-                <h2>Courses</h2>
-                <div class="form-container">
-                    <h4 class="">Login</h4>
-                    <p>Login to continue your courses</p>
-
-                    <form>
-                        <input type="text" id="email" name="email" placeholder="Type your email">
-                        <input type="text" id="password" name="password" placeholder="Password">
-
-                        <button class="btn">
-                            <a href="./takeCourse.html">
-                                Login
-                            </a>
-                        </button>
-                        <span>Are you a new member? <a href="./registration.html">Create an account</a></span>
-                    </form>
+                <h2>My Account</h2>
+                <div class="button_container">
+                    <button>My Learning</button>
+                    <button>Collections</button>
+                    <button>Certificates</button>
+                    <button>Sign Out</button>
                 </div>
+
             </div>
         </section>
-
 
         <section class="contact" id="contact">
             <div class="contact-main">
