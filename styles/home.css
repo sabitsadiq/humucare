@@ -142,7 +142,7 @@ h5 {
   font-size: 24px;
   text-align: center;
   line-height: 32.74px;
-  transition: all 0.5s ease-out;
+  transition: all 0.8s ease-in-out;
 }
 .hero-btn:hover {
   background-color: #ffffff;
@@ -206,6 +206,7 @@ h5 {
   margin-bottom: 60px;
   width: 48%;
   max-width: 440px;
+  z-index: 1;
 }
 .req-btn {
   border: none;
@@ -532,6 +533,21 @@ h5 {
   margin-top: 23px;
 }
 @media screen and (max-width: 1280px) {
+  .navbar {
+    width: 90%;
+  }
+  .nav-items {
+    width: 100%;
+  }
+  .hero-sub {
+    width: 90%;
+  }
+  .about > div {
+    width: 90%;
+  }
+  .nurse-container {
+    width: 550px;
+  }
   /* .about {
     margin-top: -55rem;
   } */
@@ -539,11 +555,10 @@ h5 {
     width: 67%;
   } */
 }
-
-@media screen and (max-width: 767px) {
-  .navbar a:not(:first-child) {
-    display: none;
-  }
+@media screen and (max-width: 839px) {
+  /* .navbar a:not(:first-child) {
+    display: block;
+  } */
   .navbar {
     display: flex;
     align-items: center;
@@ -556,6 +571,15 @@ h5 {
     float: right;
     display: block;
   }
+
+  .navbar i {
+    display: block;
+    font-size: 32px;
+    color: #120b59;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .hero {
     margin: 2rem 0rem;
     justify-content: normal;
@@ -565,30 +589,72 @@ h5 {
     flex-direction: column;
     width: 100%;
     gap: 20px;
-    /* padding: 4px; */
   }
   .hero-info,
   .hero-info h2 {
     width: 100%;
+    max-width: fit-content;
   }
   .nurse-old-woman {
     width: 100%;
     height: 405px;
   }
+  .about {
+    height: fit-content;
+  }
   .about > div {
     width: 100%;
     padding: 16px;
   }
+  .about-sub h2 {
+    display: block;
+  }
+  .about-sub p {
+    width: 100%;
+    max-width: fit-content;
+  }
   .about-sub {
     width: 100%;
+    padding: 14px;
+    margin-top: 65px;
+  }
+  .req-btn {
+    width: 100%;
+    padding: 16px 10px;
   }
   .nurse-container {
+    pointer-events: none;
+  }
+  /* .nurse-container > img {
+    background-color: red;
+    border: 1px solid green;
     width: 300px;
     height: 300px;
     right: 0px;
+  } */
+  .nurse {
+    border: 1px solid green;
+    width: 300px;
+    height: 300px;
+    display: none;
+    right: 0px;
+  }
+  header {
+    width: 100%;
+  }
+  h2 {
+    /* display: none; */
+    font-size: 41px;
+    line-height: 50.56px;
+  }
+  .book-consultation {
+    width: 90%;
+  }
+  .booking-btn {
+    padding: 18px 4px;
   }
   .testimonials {
-    margin: 2rem 0rem;
+    margin: 0rem;
     justify-content: normal;
     padding: 16px;
   }
@@ -599,12 +665,21 @@ h5 {
   .testimonials-main {
     width: 100%;
   }
-  header {
-    width: 100%;
-    justify-content: space-between;
+  .why-humucare-main {
+    width: 90%;
   }
-  h2 {
-    display: none;
+  .service-details {
+    flex-direction: column-reverse;
+  }
+  .service-details article,
+  .service-slider-container {
+    width: 100%;
+  }
+
+  .service-slider-img {
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
   }
   .form,
   .contact-main {
@@ -639,9 +714,20 @@ h5 {
 
 @media screen and (min-width: 500px) and (max-width: 1280px) {
   .nurse-old-woman {
-    /* width: 446px; */
     width: 80%;
     margin: 0px auto;
-    border: 1px solid red;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 970px) {
+  .nurse-container {
+    height: 647px;
+    position: absolute;
+    display: block;
+    top: 1%;
+    right: 77px;
+  }
+  .req-btn {
+    width: 25%;
+    z-index: 1;
   }
 }
