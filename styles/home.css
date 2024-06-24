@@ -83,6 +83,7 @@ header {
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
+  border: none;
 }
 .hero {
   display: flex;
