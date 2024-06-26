@@ -84,7 +84,7 @@ h5 {
   line-height: 32.74px;
 }
 
-.form {
+.service-quote {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -93,9 +93,10 @@ h5 {
   height: 100%;
   overflow: hidden;
   margin-top: -7rem;
+  margin-bottom: 3rem;
 }
-.form_sub {
-  margin: 10rem 0;
+.service-quote-sub {
+  margin-top: 10rem;
   width: 80%;
   pointer-events: auto;
   border-radius: 20px;
@@ -129,6 +130,12 @@ form input::placeholder {
   background: #efefef;
   border-radius: 20px;
   padding: 1rem;
+  margin: 46px 0px;
+}
+.cleaning-service p {
+  margin-bottom: 57px;
+  font-size: 20px;
+  font-weight: 700;
 }
 .cleaning-service-sub {
   display: flex;
@@ -143,15 +150,64 @@ form input::placeholder {
 .cleaning-service-left-inner,
 .cleaning-service-right-inner {
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  align-items: center;
+  /* gap: 8px; */
+  margin-bottom: 3px;
 }
 .cleaning-service-left-inner input,
 .cleaning-service-right-inner input {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
+  margin-right: 1rem;
   border: 1.16px solid #1e2223;
   border-radius: 4.64px;
+}
+.cleaning-service-left-inner h4,
+.cleaning-service-right-inner h4 {
+  font-size: 18px;
+  line-height: 32px;
+  /* font-weight: 900; */
+}
+.request_btn {
+  background: #1e2223;
+  color: #ffffff;
+  margin: 50px 0px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+}
+.other_service_heading {
+  background: #1e2223;
+  text-align: center;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56.21px;
+  padding: 14px;
+  width: 80%;
+  margin: 3rem auto;
+  border-radius: 20px;
+}
+.other-service-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  width: 80%;
+}
+.other-service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #efefef;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  min-width: 315px;
+}
+.other-service-card p {
+  font-size: 32px;
+  line-height: 44px;
+  font-weight: 900;
 }
 .contact-main,
 .footer-main {
@@ -161,7 +217,6 @@ form input::placeholder {
 .contact {
   display: flex;
   justify-content: center;
-  margin-top: -5rem;
   background: linear-gradient(357.18deg, #ffffff 44.92%, #7ebfe3 171.47%);
 }
 .contact-main {
@@ -248,6 +303,10 @@ form input::placeholder {
   .nav-items {
     width: 100%;
   }
+  .other-service-card-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* width: 90%; */
+  }
 }
 @media screen and (max-width: 839px) {
   .navbar {
@@ -272,7 +331,7 @@ form input::placeholder {
 
 @media screen and (max-width: 767px) {
   h2 {
-    font-size: 41px;
+    font-size: 32px;
     line-height: 50.56px;
   }
   .footer-main {
@@ -286,7 +345,31 @@ form input::placeholder {
   .contact-main {
     padding: 1rem;
   }
-  .form_sub,
+  .service-quote-sub {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cleaning-service-sub {
+    flex-direction: column;
+  }
+  .cleaning-service-left,
+  .cleaning-service-right {
+    width: 100%;
+  }
+  .cleaning-service-left-inner h4,
+  .cleaning-service-right-inner h4 {
+    font-size: 16px;
+  }
+
+  .other_service_heading {
+    font-size: 32px;
+    width: 90%;
+    padding: 8px;
+  }
+  .other-service-card-container {
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+  }
   .contact {
     width: 100%;
     flex-direction: column;
