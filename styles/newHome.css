@@ -391,43 +391,56 @@ h5 {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
   /* justify-content: center; */
   /* align-items: center; */
   gap: 4px;
 }
 [data-component="slideshow2"] .autoSlider-container {
+  /* display: none; */
   display: none;
   width: 100%;
   /* position: absolute; */
   top: 0;
   left: 0;
-  transform: translateX(100%);
-  transition: transform 0.5s ease-out;
+  /* transform: translateX(%); */
+  /* transform: translateX(100%);
+  transition: transform 0.5s ease-out; */
+  /* animation: slideOut 0.25s forwards; */
 }
 
 [data-component="slideshow2"] .autoSlider-container.active {
   display: flex;
-  transform: translateX(0%);
+  /* transform: translateX(0%); */
+  animation: slideIn 0.8s backwards;
   min-width: 100%;
   height: fit-content;
+  /* transition: transform 0.5s ease-out; */
 }
 
 [data-component="slideshow2"] .autoSlider-container.leaving {
   display: flex;
-  animation: slideOut 0.25s forwards;
+  animation: slideOut 0.5s both;
   /* opacity: 1; */
   min-width: 100%;
   height: fit-content;
+  /* transform: translateX(-100%);
+  transition: transform 0.5s ease-out; */
 }
 
 [data-component="slideshow2"] .autoSlider-container.entering {
   display: flex;
-  animation: slideIn 0.45s forwards;
+  /* animation: slideIn 0.45s forwards; */
   min-width: 100%;
   height: fit-content;
 }
 
 @keyframes slideOut {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
   to {
     transform: translateX(-100%);
     opacity: 0;
