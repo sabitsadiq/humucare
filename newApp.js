@@ -1,5 +1,5 @@
 import data from "./js/data.js";
-const container = document.querySelector(".container");
+const container = document.querySelector(".training-course-detail");
 const wrapper = document.querySelector(".service-slider-container");
 const arrowBtns = document.querySelectorAll(".service-dot-container .dot");
 const form = document.querySelector(".form");
@@ -13,131 +13,87 @@ const registerBtn = document.getElementById("registerBtn");
 let contents = [...data];
 // console.log("contents", contents);
 
-container.innerHTML = contents
-  .map((content, slideIndex) => {
-    const { img, heading, info } = content;
-    // console.log(content);
-    let position = "next";
-    if (slideIndex === 0) {
-      position = "active";
-    }
-    if (slideIndex === content.length - 1) {
-      position = "last";
-    }
-    if (data.length <= 1) {
-      position = "active";
-    }
+// container.innerHTML = contents
+//   .map((content, slideIndex) => {
+//     const { img, heading, info } = content;
+//     return `<div class="autoSlider-container">
 
-    //   <article class="">
-    //                 <h5>${heading}</h5>
-    //                 <p>${info}</p>
-    //             </article>
-    //             <div class="service-slider-container">
-    //                 <img class="service-slider-img" src=${img}
-    //                         alt="Nurse and Patient" />
-    //                 <div class="dot-container">
-    //                     <div class="dot" id="current"></div>
-    //                     <div class="dot"></div>
-    //                     <div class="dot"></div>
-    //                 </div>
-    //             </div>
-    return `<div class="autoSlider-container">
-                
-                <article>
-                     <div>
-                        <h5>${heading}</h5>
-                        <p>${info}</p>
+//                 <article>
+//                      <div>
+//                         <h5>${heading}</h5>
+//                         <p>${info}</p>
 
-                    </div>
-                    
-                </article>
-                <div class="training-slider-container">
-                    <img class="training-slider-img" src=${img}
-                        alt="Nurse and Patient" />
-                    
-                </div>
-            </div>
-                    `;
-  })
-  .join("");
+//                     </div>
 
-// const slideshows = document.querySelectorAll('[data-component="slideshow2"]');
-// console.log(slideshows);
+//                 </article>
+//                 <div class="training-slider-container">
+//                     <img class="training-slider-img" src=${img}
+//                         alt="Nurse and Patient" />
 
-// slideshows.forEach(initSlideShow);
+//                 </div>
+//             </div>
+//                     `;
+//   })
+//   .join("");
 
-function initSlideShow(slideshow2) {
-  const slides = document.querySelectorAll(
-    `#${slideshow2.id} [role="list"] .autoSlider-container`
-  ); // Get an array of slides
-  // console.log(slides);
-  var index = 0,
-    time = 6000;
-  slides[index].classList.add("active");
-
-  setInterval(() => {
-    slides[index].classList.remove("active");
-
-    //Go over each slide incrementing the index
-    index++;
-
-    // If you go over all slides, restart the index to show the first slide and start again
-    if (index === slides.length) index = 0;
-
-    slides[index].classList.add("active");
-    // console.log("index", slides[index]);
-  }, time);
-}
-
-let currentIndex = 0;
+let currentSlideIndex = 0;
 const slides = document.querySelectorAll(
   '[data-component="slideshow2"] .autoSlider-container'
 );
+const dotsContainer = document.querySelector(".dots-container");
 
-function showNextSlide() {
-  slides[currentIndex].classList.remove("active");
-  slides[currentIndex].classList.add("leaving");
+// Create dots
+slides.forEach((slide, index) => {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  dot.dataset.index = index;
+  dotsContainer.appendChild(dot);
 
-  currentIndex = (currentIndex + 1) % slides.length;
-
-  slides[currentIndex].classList.remove("leaving");
-  slides[currentIndex].classList.add("active");
-}
-
-setInterval(showNextSlide, 3000);
-
-arrowBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    console.log(btn.id);
-    console.log(wrapper.scrollLeft);
-    wrapper.scrollLeft +=
-      btn.id === "prev" ? -firstImageWidth : firstImageWidth;
-    console.log(firstImageWidth);
+  // Add click event to navigate to the corresponding slide
+  dot.addEventListener("click", () => {
+    currentSlideIndex = index;
+    updateSlides();
   });
 });
 
-const handleShowRegistration = () => {
-  body.classList.add(blur);
-  console.log("show register");
-  console.log(body);
-};
-const classNames = [
-  "hero",
-  "about",
-  "testimonials",
-  "why-humucare",
-  "training-course",
-  "form",
-];
+const dots = document.querySelectorAll(".dot");
+dots[currentSlideIndex].classList.add("active");
 
-const addHideClass = () => {
-  // classNames.forEach((className) => {
-  //   document.querySelectorAll(`.${className}`).forEach((element) => {
-  //     element.classList.add("hide");
-  //   });
-  // });
-  form.classList.add("show");
-  sessionStorage.setItem("form", "show");
-};
+function showNextSlide() {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  updateSlides();
+}
 
-registerBtn.addEventListener("click", addHideClass);
+function updateSlides() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove("active", "leaving", "entering");
+    if (index === currentSlideIndex) {
+      slide.classList.add("active");
+      slide.classList.add("entering");
+    } else if (slide.classList.contains("active")) {
+      slide.classList.add("leaving");
+    }
+  });
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentSlideIndex);
+  });
+}
+
+setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+
+slides.forEach((slide) => {
+  slide.addEventListener("animationend", () => {
+    slide.classList.remove("leaving", "entering");
+  });
+});
+
+// arrowBtns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     console.log(btn.id);
+//     console.log(wrapper.scrollLeft);
+//     wrapper.scrollLeft +=
+//       btn.id === "prev" ? -firstImageWidth : firstImageWidth;
+//     console.log(firstImageWidth);
+//   });
+// });
