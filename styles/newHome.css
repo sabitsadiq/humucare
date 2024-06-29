@@ -416,6 +416,7 @@ h5 {
   animation: slideIn 0.8s backwards;
   min-width: 100%;
   height: fit-content;
+  overflow: hidden;
   /* transition: transform 0.5s ease-out; */
 }
 
@@ -424,14 +425,12 @@ h5 {
   animation: slideOut 0.5s both;
   /* opacity: 1; */
   min-width: 100%;
-  height: fit-content;
-  /* transform: translateX(-100%);
-  transition: transform 0.5s ease-out; */
+  height: 0px;
 }
 
 [data-component="slideshow2"] .autoSlider-container.entering {
   display: flex;
-  /* animation: slideIn 0.45s forwards; */
+  animation: slideIn 0.45s forwards;
   min-width: 100%;
   height: fit-content;
 }
@@ -443,7 +442,7 @@ h5 {
   }
   to {
     transform: translateX(-100%);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -659,10 +658,36 @@ h5 {
 }
 
 @media screen and (max-width: 767px) {
+  .nav-links {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    background: rgba(217, 235, 242, 0.5);
+    /* background: #120b59; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    transform: translateX(-100%);
+    /* filter: blur(200px); */
+    opacity: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  .nav-links a {
+    background: #120b59;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: white;
+    /* width: 50%; */
+  }
   .hero {
     margin: 2rem 0rem;
     justify-content: normal;
     padding: 16px;
+    opacity: 1;
   }
   .hero-sub {
     flex-direction: column;
@@ -680,6 +705,7 @@ h5 {
   }
   .about {
     height: fit-content;
+    opacity: 1;
   }
   .about > div {
     width: 100%;

@@ -61,7 +61,7 @@ dots[currentSlideIndex].classList.add("active");
 
 function showNextSlide() {
   currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-  console.log({currentSlideIndex})
+  console.log({ currentSlideIndex });
   updateSlides();
 }
 
@@ -69,12 +69,12 @@ function updateSlides() {
   slides.forEach((slide, index) => {
     // slide.classList.remove("active", "leaving", "entering");
     if (index === currentSlideIndex) {
-      console.log("mayaaaa active")
+      console.log("mayaaaa active");
       slide.classList.add("active");
       // slide.classList.add("entering");
       slide.classList.remove("leaving");
     } else if (slide.classList.contains("active")) {
-      console.log("mayaa leaving")
+      console.log("mayaa leaving");
       slide.classList.add("leaving");
       slide.classList.remove("active");
     } else {
@@ -104,3 +104,23 @@ slides.forEach((slide) => {
 //     console.log(firstImageWidth);
 //   });
 // });
+
+/* mobile navbar */
+const mobileNav = document.getElementById("mobileNav");
+
+console.log(mobileNav);
+mobileNav.addEventListener("click", () => {
+  let navLink = document.querySelector(".nav-links");
+  const about = document.querySelector(".about");
+  const hero = document.querySelector(".hero");
+  if (navLink.style.transform === "translateX(0%)") {
+    navLink.style.transform = "translateX(-100%)";
+    about.style.opacity = "1";
+    hero.style.opacity = "1";
+  } else {
+    navLink.style.transform = "translateX(0%)";
+    about.style.opacity = "0";
+    hero.style.opacity = "0";
+  }
+});
+function toggleNavbar() {}
