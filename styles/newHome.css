@@ -716,11 +716,25 @@ h5 {
     margin: 0rem;
     justify-content: normal;
     padding: 16px;
+    background: linear-gradient(182.04deg, #699dca -1.66%, #120b59 100.08%);
+  }
+  .testimonials > img {
+    display: none;
+    height: 100%;
+    width: 100%;
+    min-height: max-content;
+    object-fit: contain;
+  }
+  .testimonials-main {
+    margin-top: 70px;
   }
   .testimonials-sub {
     flex-direction: column;
     margin-top: 2rem;
   }
+  /* .testimonials h {
+    color: #120b59;
+  } */
   .testimonials-card,
   .testimonials-main {
     width: 100%;
@@ -755,10 +769,12 @@ h5 {
     width: 100%;
     object-fit: cover;
   }
-  .dot-container {
-    width: 100%;
+  .dots-container {
+    position: relative;
+    margin-top: 1rem;
+    /* width: 100%;
     justify-content: center;
-    gap: 12px;
+    gap: 12px; */
   }
   .btn-dot-wrapper {
     flex-direction: column-reverse;
