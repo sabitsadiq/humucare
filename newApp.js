@@ -1,4 +1,4 @@
-import data from "./data.js";
+import data from "./js/data.js";
 const container = document.querySelector(".container");
 const wrapper = document.querySelector(".service-slider-container");
 const arrowBtns = document.querySelectorAll(".service-dot-container .dot");
@@ -13,22 +13,34 @@ const registerBtn = document.getElementById("registerBtn");
 let contents = [...data];
 // console.log("contents", contents);
 
-/* Code to add the slider contents */
-
 container.innerHTML = contents
   .map((content, slideIndex) => {
     const { img, heading, info } = content;
-    console.log(content);
-    // let position = "next";
-    // if (slideIndex === 0) {
-    //   position = "active";
-    // }
-    // if (slideIndex === content.length - 1) {
-    //   position = "last";
-    // }
-    // if (data.length <= 1) {
-    //   position = "active";
-    // }
+    // console.log(content);
+    let position = "next";
+    if (slideIndex === 0) {
+      position = "active";
+    }
+    if (slideIndex === content.length - 1) {
+      position = "last";
+    }
+    if (data.length <= 1) {
+      position = "active";
+    }
+
+    //   <article class="">
+    //                 <h5>${heading}</h5>
+    //                 <p>${info}</p>
+    //             </article>
+    //             <div class="service-slider-container">
+    //                 <img class="service-slider-img" src=${img}
+    //                         alt="Nurse and Patient" />
+    //                 <div class="dot-container">
+    //                     <div class="dot" id="current"></div>
+    //                     <div class="dot"></div>
+    //                     <div class="dot"></div>
+    //                 </div>
+    //             </div>
     return `<div class="autoSlider-container">
                 
                 <article>
@@ -77,8 +89,6 @@ function initSlideShow(slideshow2) {
   }, time);
 }
 
-/* this is the code am currently using for the slider */
-
 let currentIndex = 0;
 const slides = document.querySelectorAll(
   '[data-component="slideshow2"] .autoSlider-container'
@@ -105,3 +115,29 @@ arrowBtns.forEach((btn) => {
     console.log(firstImageWidth);
   });
 });
+
+const handleShowRegistration = () => {
+  body.classList.add(blur);
+  console.log("show register");
+  console.log(body);
+};
+const classNames = [
+  "hero",
+  "about",
+  "testimonials",
+  "why-humucare",
+  "training-course",
+  "form",
+];
+
+const addHideClass = () => {
+  // classNames.forEach((className) => {
+  //   document.querySelectorAll(`.${className}`).forEach((element) => {
+  //     element.classList.add("hide");
+  //   });
+  // });
+  form.classList.add("show");
+  sessionStorage.setItem("form", "show");
+};
+
+registerBtn.addEventListener("click", addHideClass);
