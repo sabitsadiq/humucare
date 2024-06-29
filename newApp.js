@@ -61,17 +61,24 @@ dots[currentSlideIndex].classList.add("active");
 
 function showNextSlide() {
   currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  console.log({currentSlideIndex})
   updateSlides();
 }
 
 function updateSlides() {
   slides.forEach((slide, index) => {
-    slide.classList.remove("active", "leaving", "entering");
+    // slide.classList.remove("active", "leaving", "entering");
     if (index === currentSlideIndex) {
+      console.log("mayaaaa active")
       slide.classList.add("active");
-      slide.classList.add("entering");
+      // slide.classList.add("entering");
+      slide.classList.remove("leaving");
     } else if (slide.classList.contains("active")) {
+      console.log("mayaa leaving")
       slide.classList.add("leaving");
+      slide.classList.remove("active");
+    } else {
+      slide.classList.remove("leaving");
     }
   });
 
