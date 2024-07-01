@@ -2,7 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans", sans-serif, "Roboto Serif";
 }
 body {
   margin: 0;
@@ -28,6 +28,7 @@ h2 {
   font-weight: 700;
   color: #120b59;
   line-height: 58.56px;
+  font-family: "Roboto Serif";
 }
 header {
   position: sticky;
@@ -99,6 +100,12 @@ header {
   /* flex-direction: column; */
 }
 
+.error-message {
+  margin-top: 4px;
+  color: red;
+  text-align: start;
+  font-size: 16px;
+}
 .form-sub {
   margin: 10rem 0;
   width: 80%;

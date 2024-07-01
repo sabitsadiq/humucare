@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Humucare</title>
+    <link rel="stylesheet" href="./styles/success.css">
+</head>
+
+<body>
+    <!-- <img src="./images/hero-bg-image.png" alt="hero-bg" /> -->
+    <main>
+        <header>
+            <nav class="navbar" id="myNavbar">
+                <div class="nav-items">
+                    <div>
+                        <img src="./images/logo.png" alt="logo" class="logo" />
+                    </div>
+                    <div class="nav-links">
+                        <a href="./about.html">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#consultations">Consultation</a>
+                        <a href="./service.html">Services</a>
+                    </div>
+
+                    <button class="btn">Humu Courses</button>
+                    <a href="./registration.html">
+                        <button class="btn" id="registerBtn">Register</button>
+                    </a>
+                </div>
+                <a href="javascript:void(0);" class="icon" id="mobileNav">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </nav>
+        </header>
+        <div class="sub-main">
+
+            <section class="success">
+
+                <div class="success-message-card">
+                    <p id="message"></p>
+
+                </div>
+            </section>
+            <section class="msg">
+                <div class="login-text">Already have an account?<a href="/login.html">Login</a></div>
+            </section>
+
+            <footer class="footer">
+                <div class="footer-main">
+                    <div class="footer-details">
+                        <div class="footer-nav">
+                            <h3>Company</h3>
+                            <div class="footer-links">
+                                <a>Home</a>
+                                <a>About</a>
+                                <a>Contact</a>
+                                <a>Consultation</a>
+                                <a>Services</a>
+                                <button class="btn">
+                                    Courses
+                                </button>
+                            </div>
+                        </div>
+                        <div class="footer-nav">
+                            <div class="footer-logo">
+                                <img src="./images/logo.png" alt="logo" />
+
+                            </div>
+                            <h6>Humucare&cleaning Agency is​ a registered company​​ located at the heart of
+                                birmingham,
+                                we
+                                are
+                                an
+                                organization with a
+                                standout experience in the care giving​ and cleaning.​ As we all know hygiene is a
+                                paramount
+                                and
+                                essential part of our
+                                lives so we bring you not just that but also more with love.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-container">
+                    <div class="policy-container">
+                        <span>Privacy Policy</span>
+                        <span>Terms of Services</span>
+                        <span>Legal</span>
+                    </div>
+                    <div class="copyright">
+                        <span>Copyright © 2022 Humucarecleaning All Right Reserved</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedEmail = urlParams.get('email');
+
+
+    if (encodedEmail) {
+
+        const email = decodeURIComponent(encodedEmail);
+        document.getElementById("message").textContent = `An Email was sent to ${email}. check your inbox to complete your registration and payment`;
+    } else {
+        document.getElementById("message").textContent = "No email found in URL.";
+    }
+</script>
+<script type="module" src="./js/navbar.js"></script>
+
+</html>
