@@ -1,109 +1,132 @@
-import data from "./js/data.js";
-const container = document.querySelector(".training-course-detail");
-const wrapper = document.querySelector(".service-slider-container");
-const arrowBtns = document.querySelectorAll(".service-dot-container .dot");
-const form = document.querySelector(".form");
-const firstImageWidth = document.querySelector(
-  ".service-slider-img"
-).offsetWidth;
-console.log(arrowBtns, firstImageWidth, wrapper.scrollLeft);
-// console.log(main);
-const registerBtn = document.getElementById("registerBtn");
+/* Service Slider Service Slider */
 
-let contents = [...data];
-// console.log("contents", contents);
+const prev = document.querySelector(".previous");
+const next = document.querySelector(".next");
+const images = document.querySelectorAll(".service-slider-img > img");
+const serviceDots = document.querySelectorAll(".service-dots");
+const sliderContent = document.querySelector(".service-articles-wrapper");
+const totalImages = images.length;
 
-// container.innerHTML = contents
-//   .map((content, slideIndex) => {
-//     const { img, heading, info } = content;
-//     return `<div class="autoSlider-container">
+let currentIndex = 0;
 
-//                 <article>
-//                      <div>
-//                         <h5>${heading}</h5>
-//                         <p>${info}</p>
-
-//                     </div>
-
-//                 </article>
-//                 <div class="training-slider-container">
-//                     <img class="training-slider-img" src=${img}
-//                         alt="Nurse and Patient" />
-
-//                 </div>
-//             </div>
-//                     `;
-//   })
-//   .join("");
-
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll(
-  '[data-component="slideshow2"] .autoSlider-container'
-);
-const dotsContainer = document.querySelector(".dots-container");
-
-// Create dots
-slides.forEach((slide, index) => {
-  const dot = document.createElement("div");
-  dot.classList.add("dot");
-  dot.dataset.index = index;
-  dotsContainer.appendChild(dot);
-
-  // Add click event to navigate to the corresponding slide
-  dot.addEventListener("click", () => {
-    currentSlideIndex = index;
-    updateSlides();
-  });
+prev.addEventListener("click", () => {
+  previousImage();
+  scrollSlide(0);
 });
 
-const dots = document.querySelectorAll(".dot");
-dots[currentSlideIndex].classList.add("active");
+next.addEventListener("click", () => {
+  nextImage();
+  scrollSlide(0);
+});
 
-function showNextSlide() {
-  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-  console.log({ currentSlideIndex });
-  updateSlides();
+function scrollSlide(direction) {
+  console.log(sliderContent.children);
+  const slideHeight =
+    sliderContent.scrollHeight / sliderContent.children.length;
+  let newPosition = currentIndex * -slideHeight + direction * slideHeight;
+  // Handle circular scrolling
+  if (newPosition > 0) {
+    currentIndex = 0;
+    newPosition = -(sliderContent.scrollHeight - slideHeight);
+  } else if (newPosition < -(sliderContent.scrollHeight - slideHeight)) {
+    currentIndex = sliderContent.children.length - 1;
+    newPosition = 0;
+  }
+
+  sliderContent.style.transform = `translateY(${newPosition}px)`;
+  updateDots();
 }
 
-function updateSlides() {
-  slides.forEach((slide, index) => {
-    // slide.classList.remove("active", "leaving", "entering");
-    if (index === currentSlideIndex) {
-      console.log("mayaaaa active");
-      slide.classList.add("active");
-      // slide.classList.add("entering");
-      slide.classList.remove("leaving");
-    } else if (slide.classList.contains("active")) {
-      console.log("mayaa leaving");
-      slide.classList.add("leaving");
-      slide.classList.remove("active");
-    } else {
-      slide.classList.remove("leaving");
+function updateDots() {
+  serviceDots.forEach((dot, index) => {
+    dot.classList.remove("active");
+    if (index === currentIndex) {
+      dot.classList.add("active");
     }
   });
-
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlideIndex);
-  });
 }
 
-setInterval(showNextSlide, 3000); // Change slide every 3 seconds
-
-slides.forEach((slide) => {
-  slide.addEventListener("animationend", () => {
-    slide.classList.remove("leaving", "entering");
+serviceDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentIndex = index;
+    scrollSlide(0); // Trigger scroll to the clicked dot's position
   });
 });
 
-// arrowBtns.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     console.log(btn.id);
-//     console.log(wrapper.scrollLeft);
-//     wrapper.scrollLeft +=
-//       btn.id === "prev" ? -firstImageWidth : firstImageWidth;
-//     console.log(firstImageWidth);
-//   });
-// });
+updateDots(); // Set initial active dot
+
+function nextImage() {
+  images[currentIndex].classList.remove("main");
+  if (currentIndex == totalImages - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+  images[currentIndex].classList.add("main");
+}
+function previousImage() {
+  console.log(currentIndex, "currentIndex");
+  images[currentIndex].classList.remove("main");
+  if (currentIndex == 0) {
+    currentIndex = totalImages - 1;
+  } else {
+    currentIndex--;
+  }
+  images[currentIndex].classList.add("main");
+}
+
+/* Training Slider Training Slider */
+
+const content = document.querySelector(".training-course-details");
+const item = document.querySelectorAll(".autoSlider-container");
+const pBtn = document.querySelector(".pBtn");
+const nBtn = document.querySelector(".nBtn");
+const dots = document.querySelectorAll(".dot");
+
+let active = 0;
+let itemLength = item.length - 1;
+
+nBtn.onclick = function () {
+  if (active + 1 > itemLength) {
+    active = 0;
+  } else {
+    active = active + 1;
+  }
+  reloadSlider();
+};
+pBtn.onclick = function () {
+  console.log(active - 1);
+  if (active - 1 < 0) {
+    active = itemLength;
+  } else {
+    active = active - 1;
+  }
+  reloadSlider();
+};
+let refreshSlider = setInterval(() => {
+  nBtn.click();
+}, 4000);
+
+function reloadSlider() {
+  let checkLeft = item[active].offsetLeft;
+  content.style.left = -checkLeft + "px";
+
+  let lastActiveDot = document.querySelector(".dot.active");
+  lastActiveDot.classList.remove("active");
+  dots[active].classList.add("active");
+
+  clearInterval(refreshSlider);
+  refreshSlider = setInterval(() => {
+    nBtn.click();
+  }, 4000);
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    active = index;
+    reloadSlider();
+  });
+});
 
 /* mobile navbar */
 const mobileNav = document.getElementById("mobileNav");

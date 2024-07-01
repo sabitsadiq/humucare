@@ -1,107 +1,151 @@
-import data from "./data.js";
-const container = document.querySelector(".container");
-const wrapper = document.querySelector(".service-slider-container");
-const arrowBtns = document.querySelectorAll(".service-dot-container .dot");
-const form = document.querySelector(".form");
-const firstImageWidth = document.querySelector(
-  ".service-slider-img"
-).offsetWidth;
-console.log(arrowBtns, firstImageWidth, wrapper.scrollLeft);
-// console.log(main);
-const registerBtn = document.getElementById("registerBtn");
+/* Service Slider Service Slider */
 
-let contents = [...data];
-// console.log("contents", contents);
-
-/* Code to add the slider contents */
-
-container.innerHTML = contents
-  .map((content, slideIndex) => {
-    const { img, heading, info } = content;
-    console.log(content);
-    // let position = "next";
-    // if (slideIndex === 0) {
-    //   position = "active";
-    // }
-    // if (slideIndex === content.length - 1) {
-    //   position = "last";
-    // }
-    // if (data.length <= 1) {
-    //   position = "active";
-    // }
-    return `<div class="autoSlider-container">
-                
-                <article>
-                     <div>
-                        <h5>${heading}</h5>
-                        <p>${info}</p>
-
-                    </div>
-                    
-                </article>
-                <div class="training-slider-container">
-                    <img class="training-slider-img" src=${img}
-                        alt="Nurse and Patient" />
-                    
-                </div>
-            </div>
-                    `;
-  })
-  .join("");
-
-// const slideshows = document.querySelectorAll('[data-component="slideshow2"]');
-// console.log(slideshows);
-
-// slideshows.forEach(initSlideShow);
-
-function initSlideShow(slideshow2) {
-  const slides = document.querySelectorAll(
-    `#${slideshow2.id} [role="list"] .autoSlider-container`
-  ); // Get an array of slides
-  // console.log(slides);
-  var index = 0,
-    time = 6000;
-  slides[index].classList.add("active");
-
-  setInterval(() => {
-    slides[index].classList.remove("active");
-
-    //Go over each slide incrementing the index
-    index++;
-
-    // If you go over all slides, restart the index to show the first slide and start again
-    if (index === slides.length) index = 0;
-
-    slides[index].classList.add("active");
-    // console.log("index", slides[index]);
-  }, time);
-}
-
-/* this is the code am currently using for the slider */
+const prev = document.querySelector(".previous");
+const next = document.querySelector(".next");
+const images = document.querySelectorAll(".service-slider-img > img");
+const serviceDots = document.querySelectorAll(".service-dots");
+const sliderContent = document.querySelector(".service-articles-wrapper");
+const totalImages = images.length;
 
 let currentIndex = 0;
-const slides = document.querySelectorAll(
-  '[data-component="slideshow2"] .autoSlider-container'
-);
 
-function showNextSlide() {
-  slides[currentIndex].classList.remove("active");
-  slides[currentIndex].classList.add("leaving");
+prev.addEventListener("click", () => {
+  previousImage();
+  scrollSlide(0);
+});
 
-  currentIndex = (currentIndex + 1) % slides.length;
+next.addEventListener("click", () => {
+  nextImage();
+  scrollSlide(0);
+});
 
-  slides[currentIndex].classList.remove("leaving");
-  slides[currentIndex].classList.add("active");
+function scrollSlide(direction) {
+  console.log(sliderContent.children);
+  const slideHeight =
+    sliderContent.scrollHeight / sliderContent.children.length;
+  let newPosition = currentIndex * -slideHeight + direction * slideHeight;
+  // Handle circular scrolling
+  if (newPosition > 0) {
+    currentIndex = 0;
+    newPosition = -(sliderContent.scrollHeight - slideHeight);
+  } else if (newPosition < -(sliderContent.scrollHeight - slideHeight)) {
+    currentIndex = sliderContent.children.length - 1;
+    newPosition = 0;
+  }
+
+  sliderContent.style.transform = `translateY(${newPosition}px)`;
+  updateDots();
 }
 
-setInterval(showNextSlide, 3000);
+function updateDots() {
+  serviceDots.forEach((dot, index) => {
+    dot.classList.remove("active");
+    if (index === currentIndex) {
+      dot.classList.add("active");
+    }
+  });
+}
 
-arrowBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    console.log(btn.id);
-    console.log(wrapper.scrollLeft);
-    wrapper.scrollLeft +=
-      btn.id === "prev" ? -firstImageWidth : firstImageWidth;
-    console.log(firstImageWidth);
+serviceDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentIndex = index;
+    scrollSlide(0); // Trigger scroll to the clicked dot's position
   });
 });
+
+updateDots(); // Set initial active dot
+
+function nextImage() {
+  images[currentIndex].classList.remove("main");
+  if (currentIndex == totalImages - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+  images[currentIndex].classList.add("main");
+}
+function previousImage() {
+  console.log(currentIndex, "currentIndex");
+  images[currentIndex].classList.remove("main");
+  if (currentIndex == 0) {
+    currentIndex = totalImages - 1;
+  } else {
+    currentIndex--;
+  }
+  images[currentIndex].classList.add("main");
+}
+
+/* Training Slider Training Slider */
+
+const content = document.querySelector(".training-course-details");
+const item = document.querySelectorAll(".autoSlider-container");
+const pBtn = document.querySelector(".pBtn");
+const nBtn = document.querySelector(".nBtn");
+const dots = document.querySelectorAll(".dot");
+
+let active = 0;
+let itemLength = item.length - 1;
+
+nBtn.onclick = function () {
+  if (active + 1 > itemLength) {
+    active = 0;
+  } else {
+    active = active + 1;
+  }
+  reloadSlider();
+};
+pBtn.onclick = function () {
+  console.log(active - 1);
+  if (active - 1 < 0) {
+    active = itemLength;
+  } else {
+    active = active - 1;
+  }
+  reloadSlider();
+};
+let refreshSlider = setInterval(() => {
+  nBtn.click();
+}, 4000);
+
+function reloadSlider() {
+  let checkLeft = item[active].offsetLeft;
+  content.style.left = -checkLeft + "px";
+
+  let lastActiveDot = document.querySelector(".dot.active");
+  lastActiveDot.classList.remove("active");
+  dots[active].classList.add("active");
+
+  clearInterval(refreshSlider);
+  refreshSlider = setInterval(() => {
+    nBtn.click();
+  }, 4000);
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    active = index;
+    reloadSlider();
+  });
+});
+
+/* mobile navbar */
+const mobileNav = document.getElementById("mobileNav");
+
+console.log(mobileNav);
+mobileNav.addEventListener("click", () => {
+  let navLink = document.querySelector(".nav-links");
+  const about = document.querySelector(".about");
+  const hero = document.querySelector(".hero");
+  if (navLink.style.transform === "translateX(0%)") {
+    navLink.style.transform = "translateX(-100%)";
+    about.style.opacity = "1";
+    hero.style.opacity = "1";
+    about.style.translate = "1s";
+    hero.style.translate = "1s";
+  } else {
+    navLink.style.transform = "translateX(0%)";
+    about.style.opacity = "0";
+    hero.style.opacity = "0";
+  }
+});
+function toggleNavbar() {}
