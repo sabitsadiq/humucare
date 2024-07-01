@@ -2,7 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans", sans-serif, "Roboto Serif";
 }
 body {
   margin: 0;
@@ -38,7 +38,7 @@ header {
   width: 80%;
   overflow: hidden;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 21.82px;
 }
 .nav-items {
@@ -71,11 +71,13 @@ h2 {
   font-weight: 700;
   color: #120b59;
   line-height: 58.56px;
+  font-family: "Roboto Serif";
 }
 p {
   font-size: 20px;
   line-height: 27.29px;
   color: #1e2223;
+  font-weight: 700;
 }
 
 h5 {
@@ -133,7 +135,11 @@ h5 {
 }
 .req-btn {
   border: none;
-  width: 20%;
+  width: 30%;
+  outline: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
 }
 .nurse-container {
   width: 700px;
@@ -260,9 +266,35 @@ h5 {
     display: flex;
     align-items: center;
   }
-  .nav-links,
   .nav-items button {
     display: none;
+    pointer-events: none;
+  }
+  .nav-links {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    background: rgba(217, 235, 242, 0.5);
+    /* background: #120b59; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    transform: translateX(-100%);
+    /* filter: blur(200px); */
+    opacity: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem;
+    transition: 1s;
+  }
+  .nav-links a {
+    background: #120b59;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: white;
+    /* width: 50%; */
   }
   .navbar a.icon {
     float: right;
@@ -371,7 +403,7 @@ h5 {
     right: 77px;
   }
   .req-btn {
-    width: 25%;
+    width: 45%;
     z-index: 1;
   }
 }
