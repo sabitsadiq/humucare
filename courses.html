@@ -9,13 +9,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Humucare</title>
     <link rel="stylesheet" href="./styles/courses.css">
 </head>
 
 <body>
-    <!-- <img src="./images/hero-bg-image.png" alt="hero-bg" /> -->
     <main>
 
         <header>
@@ -25,18 +27,16 @@
                         <img src="./images/logo.png" alt="logo" class="logo" />
                     </div>
                     <div class="nav-links">
-                        <a href="./about.html">About</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#consultations">Consultation</a>
-                        <a href="#services">Services</a>
+                        <a href="./home.html">Home</a>
+                        <a href="./courses.html" class="btn">Humu Courses</a>
+                        <a href="./myAccount.html" class="btn">
+                            My Account
+                            <!-- <button class="btn" id="registerBtn">My Account</button> -->
+                        </a>
                     </div>
 
-                    <button class="btn">Humu Courses</button>
-                    <a href="./registration.html">
-                        <button class="btn" id="registerBtn">Register</button>
-                    </a>
                 </div>
-                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+                <a href="javascript:void(0);" class="icon" id="mobileNav">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </nav>
@@ -265,6 +265,6 @@
         </footer>
     </main>
 </body>
-<script type="module" src="./js/app.js"></script>
+<script type="module" src="./js/navbar.js"></script>
 
 </html>

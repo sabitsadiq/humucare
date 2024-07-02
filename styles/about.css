@@ -66,6 +66,10 @@ header {
   padding: 10px;
   cursor: pointer;
 }
+#loginMobileBtn,
+#couresMobileBtn {
+  display: none;
+}
 h2 {
   font-size: 50px;
   font-weight: 700;
@@ -306,11 +310,15 @@ h5 {
     font-size: 32px;
     color: #120b59;
   }
+  #loginMobileBtn,
+  #couresMobileBtn {
+    display: block;
+  }
 }
 @media screen and (max-width: 767px) {
   header {
-    width: 100%;
-    justify-content: space-between;
+    width: 90%;
+    /* justify-content: space-between; */
   }
 
   .about {

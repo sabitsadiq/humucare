@@ -2,7 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans", sans-serif, "Roboto Serif";
 }
 body {
   margin: 0;
@@ -33,11 +33,12 @@ h2 {
   font-weight: 700;
   color: #120b59;
   line-height: 58.56px;
+  font-family: "Roboto Serif";
 }
 p {
   font-size: 30px;
   line-height: 40.93px;
-  color: rgba(18, 11, 89, 1);
+  color: #120b59;
   font-weight: 400;
 }
 header {
@@ -49,13 +50,13 @@ header {
   box-shadow: 0px 0px 6.3px 0px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
-  z-index: 2;
+  z-index: 1000;
 }
 .navbar {
-  width: 80%;
+  width: 90%;
   overflow: hidden;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 21.82px;
 }
 .nav-items {
@@ -67,7 +68,7 @@ header {
 .navbar a {
   float: left;
   display: block;
-  color: #1e2223;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -76,10 +77,12 @@ header {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 37px;
+  width: 40%;
+  justify-content: space-between;
 }
-.nav-links a {
-  color: white;
+#couresMobileBtn,
+#loginMobileBtn {
+  display: none;
 }
 .navbar .icon {
   display: none;
@@ -88,7 +91,7 @@ header {
   background: rgba(18, 11, 89, 1);
   color: white;
   border-radius: 4px;
-  padding: 10px;
+  padding: 16px 10px;
   cursor: pointer;
   border: none;
 }
@@ -102,8 +105,13 @@ header {
     rgba(82, 128, 176, 0.09) -34.03%,
     #120b59 101.92%
   );
+  margin-top: -6rem;
 }
-.welcome_sub,
+.welcome_sub {
+  width: 80%;
+  margin-top: 9rem;
+  margin-bottom: 5rem;
+}
 .explore-more_sub {
   margin: 5rem 0;
   width: 80%;
@@ -129,10 +137,24 @@ header {
 .explore-more_card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background: #ffffff1a;
   padding: 22px;
-  max-width: 317px;
+  cursor: pointer;
+  /* max-width: 317px; */
+}
+.explore-more_card:hover {
+  transform: translateY(-12px);
+  transition: all 0.7s ease-in-out;
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  /* background: #ffffff1a; */
+  /* padding: 22px; */
+  /* max-width: 317px; */
 }
 .explore-more_card p {
   font-size: 32px;
@@ -146,13 +168,14 @@ header {
   font-size: 64px;
 }
 .card_container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  width: 100%;
-  /* justify-content: center; */
 }
 .explore-more_btn_container button {
   width: 100%;
+  margin-top: 1rem;
+  outline: none;
 }
 .more_course_btn {
   background-color: white;
@@ -164,6 +187,12 @@ header {
   padding: 10px;
   border: none;
   margin-bottom: 2rem;
+}
+.more_course_btn:hover {
+  background: #120b59;
+  color: white;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 .training-course-main,
 .contact-main,
@@ -255,6 +284,11 @@ header {
 .copyright {
   margin-top: 23px;
 }
+@media screen and (max-width: 1280px) {
+  .nav-links {
+    width: 48%;
+  }
+}
 @media screen and (max-width: 1024px) {
   .nav-items {
     width: 100%;
@@ -263,15 +297,64 @@ header {
     max-width: 100%;
   }
   .card_container {
-    flex-wrap: wrap;
-    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 839px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  .nav-items button {
+    display: none;
+    pointer-events: none;
+  }
+  .nav-links {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    background: rgba(217, 235, 242, 0.5);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    transform: translateX(-100%);
+    opacity: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem;
+    transition: 1s;
+  }
+  .nav-links a {
+    background: #120b59;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: white;
+  }
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+
+  .navbar i {
+    display: block;
+    font-size: 32px;
+    color: #120b59;
+  }
+  #loginMobileBtn,
+  #couresMobileBtn {
+    display: block;
   }
 }
 @media screen and (max-width: 767px) {
   header {
     width: 100%;
+    /* padding: 1rem; */
+    /* justify-content: space-between; */
+  }
+  .nav-links {
     padding: 1rem;
-    justify-content: space-between;
   }
   /* h2 {
     display: none;
@@ -288,11 +371,14 @@ header {
     width: 100%;
   }
   .welcome_sub {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     width: 100%;
   }
   .card_container {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .explore-more_sub {
+    width: 90%;
   }
   .explore-more_card {
     max-width: 100%;

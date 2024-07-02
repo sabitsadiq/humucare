@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Login</title>
     <link rel="stylesheet" href="./styles/login.css">
 </head>
@@ -22,22 +23,24 @@
             <nav class="navbar" id="myNavbar">
                 <div class="nav-items">
                     <div>
-                        <a href="./home.html">
-                            <img src="./images/logo.png" alt="logo" class="logo" />
-                        </a>
+                        <img src="./images/logo.png" alt="logo" class="logo" />
                     </div>
                     <div class="nav-links">
                         <a href="./about.html">About</a>
                         <a href="#contact">Contact</a>
                         <a href="#consultations">Consultation</a>
                         <a href="./service.html">Services</a>
+                        <a href="./courses.html" id="couresMobileBtn">Courses</a>
+                        <a href="./login.html" id="loginMobileBtn">Login</a>
                     </div>
 
                     <button class="btn">Humu Courses</button>
-                    <button class="btn">Register</button>
+                    <a href="./registration.html">
+                        <button class="btn" id="registerBtn">Register</button>
+                    </a>
                 </div>
-                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-                    <i>&#9776;</i>
+                <a href="javascript:void(0);" class="icon" id="mobileNav">
+                    <i class="fa-solid fa-bars"></i>
                 </a>
             </nav>
         </header>
@@ -144,5 +147,6 @@
     </main>
 </body>
 <script type="module" src="./js/loginValidation.js"></script>
+<script type="module" src="./js/navbar.js"></script>
 
 </html>

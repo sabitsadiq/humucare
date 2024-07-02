@@ -58,6 +58,10 @@ header {
 .navbar .icon {
   display: none;
 }
+#couresMobileBtn,
+#loginMobileBtn {
+  display: none;
+}
 .btn {
   background: rgba(18, 11, 89, 1);
   color: white;
@@ -354,6 +358,10 @@ form input::placeholder {
     display: block;
     font-size: 32px;
     color: #120b59;
+  }
+  #loginMobileBtn,
+  #couresMobileBtn {
+    display: block;
   }
 }
 
