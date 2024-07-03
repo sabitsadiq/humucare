@@ -114,7 +114,7 @@ header {
 }
 .explore-more_sub {
   margin: 5rem 0;
-  width: 80%;
+  width: 90%;
 }
 .tutorial-container {
   margin-top: 3rem;
@@ -142,10 +142,11 @@ header {
   padding: 22px;
   cursor: pointer;
   /* max-width: 317px; */
+  transition: all 0.7s ease-in-out;
 }
 .explore-more_card:hover {
   transform: translateY(-12px);
-  transition: all 0.7s ease-in-out;
+  border-radius: 12px;
 }
 .inner {
   display: flex;
