@@ -7,12 +7,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./styles/result.css">
     <title>Courses</title>
 </head>
 
 <body>
-    <img src="./images/hero-bg-image.png" alt="hero-bg" />
     <main>
 
         <header>
@@ -23,30 +26,35 @@
                     </div>
                     <div class="nav-links">
                         <a href="./home.html">Home</a>
-
-                        <button class="btn">Humu Courses</button>
-                        <a href="./myAccount.html">
-                            <button class="btn" id="registerBtn">My Account</button>
+                        <a href="./courses.html" class="btn">Humu Courses</a>
+                        <a href="./myAccount.html" class="btn">
+                            My Account
                         </a>
                     </div>
+
                 </div>
-                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-                    <i>&#9776;</i>
+                <a href="javascript:void(0);" class="icon" id="mobileNav">
+                    <i class="fa-solid fa-bars"></i>
                 </a>
             </nav>
         </header>
-        <section class="welcome">
-            <div class="welcome_sub">
+        <section class="result">
+            <div class="collections_sub">
 
-                <h2>Welcome</h2>
-                <p>A demo of our course on Person-centered care</p>
-                <div class="tutorial-container">
-                    <img src="./images/course.png" alt="video" />
+
+                <div class="circle-wrapper">
+                    <!-- <div class="donut"></div> -->
+                    <div class="preloader">
+                        <img src="./images/loader.png" alt="Preloader Icon"> <span class="counter">0%</span>
+                    </div>
                 </div>
+
+                <div class="calculating-result">
+                    <p>Please wait ...</p>
+                    <h4>Calculating your score</h4>
+                </div>
+
             </div>
-        </section>
-        <section class="explore-more">
-            <div class="donut"></div>
         </section>
 
         <section class="contact" id="contact">
@@ -109,7 +117,7 @@
                             are
                             an
                             organization with a
-                            standout experience in the care giving​ and cleaning.​As we all know hygiene is a paramount
+                            standout experience in the care giving​ and cleaning.​ As we all know hygiene is a paramount
                             and
                             essential part of our
                             lives so we bring you not just that but also more with love.</h6>
@@ -129,6 +137,7 @@
         </footer>
     </main>
 </body>
-<script type="module" src="./js/app.js"></script>
+<script type="module" src="./js/navbar.js"></script>
+<script type="module" src="./js/circleCounter.js"></script>
 
 </html>
